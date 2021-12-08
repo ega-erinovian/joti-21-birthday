@@ -7,7 +7,7 @@ const AudioControl = () => {
       <div className="audio-control-wrapper">
         <button className="btn">
           <div className="icon">
-            <audio src={BirthdaySong} id="music" controls></audio>
+            <audio src={BirthdaySong} id="music" controls autoplay></audio>
           </div>
         </button>
       </div>
