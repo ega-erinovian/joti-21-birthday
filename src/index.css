@@ -1,13 +1,287 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --joti-pink: #ff16c5;
+  --gray-dark: #111;
+  --gray-md: #333;
+}
+
+body::-webkit-scrollbar {
+  width: 0.5rem; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--gray-dark); /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--joti-pink); /* color of the scroll thumb */
+  border-radius: 2rem; /* roundness of the scroll thumb */
+  border: none; /* creates padding around scroll thumb */
+}
+
+body {
+  position: relative;
+  top: 0;
+  right: 0;
+  overflow-x: hidden;
+  color: #fff;
+  font-family: "Poppins", "sans-serif";
+  background-image: url(./img/bg-all.webp);
+  background-attachment: fixed;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  position: relative;
+  width: 90%;
+}
+
+img {
+  width: 100%;
+}
+
+/* Audio Control */
+.audio-control-wrapper {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  bottom: 1rem;
+}
+
+.audio-control-wrapper .btn {
+  height: 60px;
+  width: 60px;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.audio-control-wrapper .btn:hover {
+  width: 300px;
+}
+
+.audio-control-wrapper .btn .icon {
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.audio-control-wrapper .btn .icon audio {
+  width: 100%;
+  padding: 0 1rem;
+  transition: all 0.3s ease;
+}
+
+/* Navbar */
+nav {
+  width: 100%;
+  position: relative;
+  padding: 2rem;
+}
+
+nav .navbar-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+nav a {
+  position: relative;
+  color: #fff;
+  padding: 0 10px;
+  font-weight: 600;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  background-color: var(--joti-pink);
+  height: 4px;
+  width: 0;
+  left: 0;
+  bottom: -10px;
+  transition: 0.2s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Header */
+header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, #ff16c53f), url(./img/bg-header-mobile.webp);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Message */
+#message {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+#message .container {
+  padding: 0 0 2.5rem 0;
+}
+
+#message .img-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+#message .img-container img {
+  width: 150%;
+  object-fit: cover;
+  filter: grayscale(1);
+  transition: all 0.5s ease;
+}
+
+#message .img-container img:hover {
+  transform: scale(1.1);
+  filter: grayscale(0);
+}
+
+#message .container p {
+  font-weight: 200;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+#message .container .signature-wrapper {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+#message .container .signature-wrapper img {
+  width: 70%;
+}
+
+/* Album */
+.album-joti h1 {
+  text-align: center;
+  font-size: 1.7rem;
+  padding-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.album-joti h1:hover {
+  color: var(--joti-pink);
+}
+.album {
+  position: relative;
+  padding: 0 5% 10% 5%;
+}
+
+.album img {
+  height: 300px;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.album img:hover {
+  cursor: zoom-in;
+  transform: scale(1.05);
+  box-shadow: 0px 0px 1rem 5px #1d1d1d;
+}
+
+/* Gift */
+#gift-container {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-image: url(../src/img/sepokat-bg.webp);
+  background-attachment: fixed;
+  border-radius: 50%;
+}
+/* Large Screen */
+@media all and (min-width: 800px) {
+  .container {
+    position: relative;
+    width: 70%;
+  }
+
+  /* Audio Control */
+  .audio-control-wrapper {
+    right: 2rem;
+  }
+
+  .audio-control-wrapper .btn:hover {
+    width: 400px;
+  }
+
+  /* Navbar */
+  nav {
+    padding: 2rem 2rem 0 2rem;
+  }
+  nav .navbar-wrapper {
+    margin: 3rem;
+  }
+  nav a {
+    font-size: 2rem;
+  }
+
+  /* Header */
+  header {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 80%, #ff16c53f), url(./img/bg-header.webp);
+    display: block;
+  }
+
+  /* Message */
+  #message .img-container img {
+    width: 100%;
+  }
+
+  #message .container .signature-wrapper img {
+    width: 20%;
+  }
+
+  /* Album */
+  .album-joti h1 {
+    font-size: 5rem;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+
+  /* Create four equal columns that sits next to each other */
+  .column {
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+  }
+
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+    height: auto;
+  }
 }
